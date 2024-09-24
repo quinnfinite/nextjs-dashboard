@@ -16,11 +16,9 @@ import { createInvoice, State } from '@/app/lib/actions';
 export default function Form({ customers }: { customers: CustomerField[] }) {
   const initialState: State = { message: null, errors: {} };
   const [state, formAction] = useActionState(createInvoice, initialState);
-  console.log({
-    state
-  })
+
   return (
-    <form action={formAction}>.
+    <form action={formAction}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
         {/* Customer Name */}
         <div className="mb-4">
@@ -133,7 +131,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             ))}
           </div>
         </fieldset>
-          <div id="amount-error">
+          <div id="general-error">
             {Object.keys(state.errors).length ?
               (
                 <p className="mt-2 text-sm text-red-500">
